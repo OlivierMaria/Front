@@ -1,33 +1,4 @@
-/* CSS pour la NavBar */
-nav {
-  background-color: #f0f0f0;
-  padding: 10px;
-}
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-li {
-  display: inline;
-  margin: 0 10px;
-}
-
-Link {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-Link:hover {
-  color: #555;
-}
-
-/* CSS pour la NavBar */
 
 /* CSS pour le composant de connexion */
 .login-container {
