@@ -43,8 +43,11 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="flex items-center">
-            <button className="text-white px-4 py-2 rounded-md bg-blue-800 hover:bg-blue-700 text-sm font-medium">
+            <button className="text-white px-4 py-2 mr-2 rounded-md bg-blue-800 hover:bg-blue-700 text-sm font-medium">
               Se connecter
+            </button>
+            <button className="text-white px-4 py-2  rounded-md bg-green-800 hover:bg-blue-700 text-sm font-medium">
+              S'inscrire
             </button>
           </div>
         </div>
