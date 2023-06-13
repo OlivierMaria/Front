@@ -1,5 +1,5 @@
-import Signup from "./Signup";
-import Login from "./Login";
+import Signup from "../Pages/Signup.js";
+import Login from "../Pages/Login.js";
 import Logout from "./Logout";
 import PrivateText from "./PrivateText.js";
 import { useState, useEffect } from "react";
