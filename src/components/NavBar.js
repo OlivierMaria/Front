@@ -9,7 +9,7 @@ const NavBar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img
-                src={Logo} // Remplacez "/path/to/logo.png" par le chemin d'accès réel de votre logo
+                src={Logo}
                 alt="Logo"
                 style={{ width: "100px", height: "100px" }}
                 className="mr-2"
