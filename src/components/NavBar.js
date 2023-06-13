@@ -48,15 +48,19 @@ const NavBar = () => {
                 className="text-white px-4 py-2 mr-2 rounded-md hover:bg-blue-700 text-sm font-medium"
                 style={{ backgroundColor: "#ae9371" }}
               >
-                Crée une annonce
+                Créer une annonce
               </button>
             </Link>
-            <button className="text-white px-4 py-2 mr-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
-              Se connecter
-            </button>
-            <button className="text-white px-4 py-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
-              S'inscrire
-            </button>
+            <Link to="/login">
+              <button className="text-white px-4 py-2 mr-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
+                Se connecter
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="text-white px-4 py-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
+                S'inscrire
+              </button>
+            </Link>
           </div>
         </div>
       </div>
