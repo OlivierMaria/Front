@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Contact from "../assets/video/Contact.mp4";
 
 const ContactForm = () => {
@@ -13,8 +14,8 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Envoyer les données du formulaire
-    console.log("Données du formulaire:", {
+
+    const formData = {
       nom,
       prenom,
       email,
@@ -23,16 +24,31 @@ const ContactForm = () => {
       agence,
       client,
       newsletter,
-    });
-    // Réinitialiser les champs
-    setNom("");
-    setPrenom("");
-    setEmail("");
-    setTelephone("");
-    setMessage("");
-    setAgence("");
-    setClient(false);
-    setNewsletter(false);
+    };
+
+    axios
+      .post(
+        "https://getform.io/f/33d01226-e8a6-40b2-9efc-c89448fe46e2",
+        formData,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        // Réinitialiser les champs
+        setNom("");
+        setPrenom("");
+        setEmail("");
+        setTelephone("");
+        setMessage("");
+        setAgence("");
+        setClient(false);
+        setNewsletter(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
