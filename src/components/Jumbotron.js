@@ -9,7 +9,7 @@ const Jumbotron = () => {
         Sorry, your browser doesn't support embedded videos.
       </video>
       <Link to="/properties">
-        <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-6 py-3 text-white bg-blue-800 rounded-md hover:bg-blue-600">
+        <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-6 py-3 text-white  rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
           On y va ⮞
         </button>
       </Link>
