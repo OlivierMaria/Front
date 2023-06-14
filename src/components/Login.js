@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Signup = ({ setCurrUser, setShow }) => {
+const Login = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
+  const navigate = useNavigate();
 
-  const signup = async (userInfo, setCurrUser) => {
-    const url = "http://localhost:3000/signup";
+  const login = async (userInfo, setCurrUser) => {
+    const url = "http://localhost:3000/login";
     try {
       const response = await fetch(url, {
         method: "post",
@@ -18,6 +20,7 @@ const Signup = ({ setCurrUser, setShow }) => {
       if (!response.ok) throw data.error;
       localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrUser(data);
+      navigate("/properties"); // Redirige vers la page "properties" après la connexion
     } catch (error) {
       console.log("error", error);
     }
@@ -30,18 +33,18 @@ const Signup = ({ setCurrUser, setShow }) => {
     const userInfo = {
       user: { email: data.email, password: data.password },
     };
-    signup(userInfo, setCurrUser);
+    login(userInfo, setCurrUser);
     e.target.reset();
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    setShow(true);
+    setShow(false);
   };
 
   return (
     <div className="max-w-md mx-auto mt-4 p-6 bg-white shadow-md rounded-md">
-      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
+      <h2 className="text-2xl font-bold mb-4">Login</h2>
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="email" className="block font-medium text-gray-700">
@@ -69,24 +72,20 @@ const Signup = ({ setCurrUser, setShow }) => {
         </div>
         <button
           type="submit"
-          className="text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          className=" text-white px-4 py-2 rounded-md hover:bg-blue-600"
           style={{ backgroundColor: "#ae9371" }}
         >
-          Sign Up
+          Login
         </button>
       </form>
       <div className="mt-4">
-        Already registered,{" "}
-        <a
-          href="#login"
-          onClick={handleClick}
-          className="text-blue-500 font-medium"
-        >
-          Login here.
-        </a>{" "}
+        Not registered yet,{" "}
+        <Link to="/Signup" className="text-blue-500 font-medium">
+          Signup
+        </Link>{" "}
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default Login;

@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 
-const Login = ({ setCurrUser, setShow }) => {
+const Signup = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
 
-  const login = async (userInfo, setCurrUser) => {
-    const url = "http://localhost:3000/login";
+  const signup = async (userInfo, setCurrUser) => {
+    const url = "http://localhost:3000/signup";
     try {
       const response = await fetch(url, {
         method: "post",
@@ -30,18 +31,18 @@ const Login = ({ setCurrUser, setShow }) => {
     const userInfo = {
       user: { email: data.email, password: data.password },
     };
-    login(userInfo, setCurrUser);
+    signup(userInfo, setCurrUser);
     e.target.reset();
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    setShow(false);
+    setShow(true);
   };
 
   return (
     <div className="max-w-md mx-auto mt-4 p-6 bg-white shadow-md rounded-md">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
+      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="email" className="block font-medium text-gray-700">
@@ -69,24 +70,20 @@ const Login = ({ setCurrUser, setShow }) => {
         </div>
         <button
           type="submit"
-          className=" text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          className="text-white px-4 py-2 rounded-md hover:bg-blue-600"
           style={{ backgroundColor: "#ae9371" }}
         >
-          Login
+          Sign Up
         </button>
       </form>
       <div className="mt-4">
-        Not registered yet,{" "}
-        <a
-          href="#signup"
-          onClick={handleClick}
-          className="text-blue-500 font-medium"
-        >
-          Signup
-        </a>{" "}
+        Already registered,{" "}
+        <Link to="/Login" className="text-blue-500 font-medium">
+          Login here.
+        </Link>{" "}
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signup;
