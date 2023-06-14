@@ -27,9 +27,7 @@ const Card = () => {
         <div
           key={logement.id}
           className="bg-white p-4 rounded shadow m-4 flex"
-          data-aos="flip-left"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"
+          data-aos="fade-down"
         >
           <img src={Maison} alt="" className="w-1/3 mr-4" />
           <div className="flex-1">
