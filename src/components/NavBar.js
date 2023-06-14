@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import Logo from "../assets/img/Logo.png";
 
-const NavBar = () => {
+const NavBar = ({ currUser, setCurrUser }) => {
+  const handleLogout = () => {
+    // Logique de déconnexion
+    setCurrUser(null);
+  };
+
   return (
     <nav className="bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,24 +48,37 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="flex items-center ml-auto space-x-4">
-            <Link to="/annonce">
-              <button
-                className="text-white px-4 py-2 mr-2 rounded-md hover:bg-blue-700 text-sm font-medium"
-                style={{ backgroundColor: "#ae9371" }}
-              >
-                Créer une annonce
-              </button>
-            </Link>
-            <Link to="/login">
-              <button className="text-white px-4 py-2 mr-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
-                Se connecter
-              </button>
-            </Link>
-            <Link to="/signup">
-              <button className="text-white px-4 py-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
-                S'inscrire
-              </button>
-            </Link>
+            {currUser ? (
+              <>
+                <Link to="/annonce">
+                  <button
+                    className="text-white px-4 py-2 mr-2 rounded-md hover:bg-blue-700 text-sm font-medium"
+                    style={{ backgroundColor: "#ae9371" }}
+                  >
+                    Créer une annonce
+                  </button>
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="text-white px-4 py-2 rounded-md bg-red-600 hover:bg-red-400 text-sm font-medium"
+                >
+                  Se déconnecter
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <button className="text-white px-4 py-2 mr-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
+                    Se connecter
+                  </button>
+                </Link>
+                <Link to="/signup">
+                  <button className="text-white px-4 py-2 rounded-md bg-gray-600 hover:bg-gray-400 text-sm font-medium">
+                    S'inscrire
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

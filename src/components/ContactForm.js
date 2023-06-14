@@ -54,6 +54,7 @@ const ContactForm = () => {
   return (
     <div className="flex justify-center items-center">
       <form className="w-full max-w-md mx-auto" onSubmit={handleSubmit}>
+        <h2 className="text-2xl  mb-4 text-center">Contact</h2>
         <div className="mb-4">
           <label
             htmlFor="nom"
